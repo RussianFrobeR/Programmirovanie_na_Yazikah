@@ -2,15 +2,6 @@ import math
 
 THRESHOLD = 3
 
-def insertion_sort(arr, left, right):
-    for i in range(left + 1, right + 1):
-        key = arr[i]
-        j = i - 1
-        while j >= left and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key
-
 def merge(arr, left, mid, right, depth):
     n1 = mid - left + 1
     n2 = right - mid
@@ -50,7 +41,6 @@ def merge_sort(arr, left, right, depth):
     if length <= THRESHOLD:
         indent = "  " * depth
         print(indent + "Размер {} (≤ порога), вставками: {}".format(length, arr[left:right+1]))
-        insertion_sort(arr, left, right)
         print(indent + "Результат вставок: {}".format(arr[left:right+1]))
         return
 
