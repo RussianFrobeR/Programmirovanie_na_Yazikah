@@ -6,14 +6,13 @@ class NewtonResult:
 
 
 def f(x):
-    """f(x) = x³ - 2x - 5"""
-    return x**3 - 2*x - 5
+    """f(x) = x³ - 5"""
+    return x**3  - 5
 
 
 def df(x):
     """f'(x) = 3x² - 2"""
-    return 3*x**2 - 2
-
+    return 3*x**2 
 
 def solveNewtonMethod(initial_x, eps):
     x = initial_x
@@ -24,7 +23,7 @@ def solveNewtonMethod(initial_x, eps):
         fx = f(x)
         dfx = df(x)
 
-        if abs(dfx) < 1e-15:
+        if abs(dfx) == 0:
             print("Производная равна нулю!")
             break
 
@@ -89,6 +88,6 @@ def findRootWithDetails(initial_x, eps):
 
 
 if __name__ == "__main__":
-    x0 = 2.0
+    x0 = 0
     epsilon = 0.00001
     solveNewtonMethod(x0, epsilon)
